@@ -1,0 +1,59 @@
+
+
+body {
+  background-color: black;
+  color: #00fc11;
+}
+
+#board {
+  border: 1px solid #00fc11;
+  empty-cells: show;
+  vertical-align: center;
+}
+
+#board td {
+  border: 1px solid #00fc11;
+  height: 100px;
+  width: 100px;
+}
+
+
+#player1, #player2, #reset {
+  display: inline-block;
+}
+
+#player1 {
+  color: blue;
+}
+
+#player2 {
+  color: red;
+}
+
+#players-scores {
+  width: 800px;
+}
+
+tr:nth-child(odd) td:nth-child(even), tr:nth-child(even) td:nth-child(odd){
+  background-color: white;
+}
+
+.piece {
+  height: 80px;
+  width: 80px;
+  border: 1px solid #00fc11;
+  border-radius: 100%;
+  margin: auto;
+}
+
+.blue {
+  background-color: blue;
+}
+
+.red {
+  background-color: red;
+}
+
+.selected {
+  border: 5px solid #00fc11;
+}
