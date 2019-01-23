@@ -15,6 +15,19 @@ var board = [
 
 var currentPlayer = "blue";
 
+function reset() {
+  board = [
+    [0, 1, 0, 1, 0, 1, 0, 1],
+    [1, 0, 1, 0, 1, 0, 1, 0],
+    [0, 1, 0, 1, 0, 1, 0, 1],
+    [0, 0, 0, 0, 0, 0, 0, 0],
+    [0, 0, 0, 0, 0, 0, 0, 0],
+    [2, 0, 2, 0, 2, 0, 2, 0],
+    [0, 2, 0, 2, 0, 2, 0, 2],
+    [2, 0, 2, 0, 2, 0, 2, 0]
+  ];
+}
+
 function setBoard() {
 
   // first clear the board
@@ -60,11 +73,13 @@ function validate(selectedCell, targetCell) {
       if(tc === sc+2) {
         if($("#" + (sr-1) + (sc+1)).children(":first").hasClass("red")) {
           valid = true;
+          board[sr-1][sc+1] = 0;
         }
       }
       else if(tc === sc-2) {
         if($("#" + (sr-1) + (sc-1)).children(":first").hasClass("red")) {
           valid = true;
+          board[sr-1][sc-1] = 0;
         }
       }
     }
@@ -80,11 +95,13 @@ function validate(selectedCell, targetCell) {
       if(tc === sc-2) {
         if($("#" + (sr+1) + (sc-1)).children(":first").hasClass("blue")) {
           valid = true;
+          board[sr+1][sc-1] = 0;
         }
       }
       else if(tc === sc+2) {
         if($("#" + (sr+1) + (sc+1)).children(":first").hasClass("blue")) {
           valid = true;
+          board[sr+1][sc+1] = 0;
         }
       }
     }
@@ -94,24 +111,11 @@ function validate(selectedCell, targetCell) {
 }
 
 
-function initialize() {
-
-  /*board = [
-    [0, 1, 0, 1, 0, 1, 0, 1]
-    [1, 0, 1, 0, 1, 0, 1, 0]
-    [0, 1, 0, 1, 0, 1, 0, 1]
-    [0, 0, 0, 0, 0, 0, 0, 0]
-    [0, 0, 0, 0, 0, 0, 0, 0]
-    [2, 0, 2, 0, 2, 0, 2, 0]
-    [0, 2, 0, 2, 0, 2, 0, 2]
-    [2, 0, 2, 0, 2, 0, 2, 0]
-  ]*/
-}
-
 
 //event.preventDefault();
 
 $(document).ready(function() {
+
 
   var selected = false;
   var selectedCell = '';
@@ -141,26 +145,15 @@ $(document).ready(function() {
       currentPlayer = (currentPlayer === "blue") ? "red" : "blue";
     }
 
-    //let color = currentPlayer === "blue" ? ".blue" : ".red";
-
-    //console.log($(this).prop("tagName"));
-    /*if(cell.is(color)) {
-      console.log("hi");
-    }*/
-
-    //var piece = document.getElementById("piece1");
-    //var piece = ;
-    //console.log(cell);
-    //console.log($(this).find('div:first').attr('id'));
-
-    //console.log(piece.prop("tagName"));
-
-    /*if(piece ) {
-
-      console.log("hi");
-    }*/
-
 
   });
+
+  $("#reset").click(function() {
+    reset();
+    setBoard();
+
+  });
+
+
 
 });
