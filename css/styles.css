@@ -54,6 +54,10 @@ tr:nth-child(odd) td:nth-child(even), tr:nth-child(even) td:nth-child(odd){
   background-color: red;
 }
 
+#king {
+  background-color: purple;
+}
+
 .selected {
   border: 5px solid #00fc11;
 }

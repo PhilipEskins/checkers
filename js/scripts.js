@@ -26,6 +26,7 @@ function reset() {
     [0, 2, 0, 2, 0, 2, 0, 2],
     [2, 0, 2, 0, 2, 0, 2, 0]
   ];
+  currentPlayer = "blue";
 }
 
 function setBoard() {
@@ -45,8 +46,16 @@ function setBoard() {
         case 2:
           cell.append("<div class='piece blue'>");
           break;
+        case 3:
+          cell.append("<div class='piece'>");
+          break;
       }
 
+    //   for (var k = 0; k < 8; k++) {
+    //     if (board[0][k] === 2) {
+    //       cell.append("<div class='piece blue' id='king'>");
+    //     }
+    // }
     }
   }
 
@@ -83,6 +92,7 @@ function validate(selectedCell, targetCell) {
         }
       }
     }
+
   }
 
   if (currentPlayer === "red") {
